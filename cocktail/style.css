@@ -1,0 +1,252 @@
+ :root {
+   --bg: #0f172a;
+   --panel: #111827;
+   --muted: #94a3b8;
+   --text: #e5e7eb;
+   --accent: #22c55e;
+   --accent-2: #3b82f6;
+   --danger: #ef4444;
+   --border: #1f2937;
+ }
+
+ * {
+   box-sizing: border-box;
+ }
+
+ body {
+   margin: 0;
+   background: var(--bg);
+   color: var(--text);
+   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+ }
+
+ header {
+   position: sticky;
+   top: 0;
+   backdrop-filter: blur(6px);
+   background: color-mix(in oklab, var(--bg) 82%, transparent);
+   border-bottom: 1px solid var(--border);
+   z-index: 10;
+ }
+
+ .container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 16px;
+ }
+
+ .title {
+   font-size: 24px;
+   font-weight: 700;
+   letter-spacing: 0.2px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   justify-content: center;
+ }
+
+ .search-wrapper {
+   display: flex;
+   justify-content: center;
+   margin: 24px auto;
+ }
+
+ form.search {
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: 8px;
+   width: 100%;
+   max-width: 600px;
+ }
+
+ input[type="text"] {
+   width: 100%;
+   padding: 12px 14px;
+   border-radius: 12px;
+   border: 1px solid var(--border);
+   background: #0b1220;
+   color: var(--text);
+   outline: none;
+ }
+
+ button {
+   cursor: pointer;
+   border: 1px solid var(--border);
+   border-radius: 12px;
+   padding: 10px 14px;
+   color: var(--text);
+   background: #0b1220;
+   transition: transform .04s ease, background .2s ease;
+ }
+
+ button:hover {
+   background: #0b1525;
+ }
+
+ button:active {
+   transform: translateY(1px);
+ }
+
+ .btn-primary {
+   background: color-mix(in oklab, var(--accent-2) 26%, #0b1220);
+   border-color: color-mix(in oklab, var(--accent-2) 60%, var(--border));
+ }
+
+.btn-green {
+   background: color-mix(in oklab, var(--accent) 26%, #0b1220);
+   border-color: color-mix(in oklab, var(--accent) 60%, var(--border));
+ }
+
+ .btn-danger {
+   background: color-mix(in oklab, var(--danger) 26%, #0b1220);
+   border-color: color-mix(in oklab, var(--danger) 60%, var(--border));
+ }
+
+ .app {
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   gap: 18px;
+   padding-block: 16px;
+ }
+
+ @media (max-width: 765px) {
+   .app {
+     grid-template-columns: 1fr;
+   }
+ }
+
+ .card {
+   background: var(--panel);
+   border: 1px solid var(--border);
+   border-radius: 16px;
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+   height: calc(100vh - 186px);
+    overflow: auto;
+    scrollbar-width: thin;
+ }
+
+ .card h2 {
+   margin: 0 0 8px;
+   font-size: 18px;
+ }
+
+ .card .content {
+   padding: 16px;
+ }
+
+ .results {
+   display: flex;
+  
+   gap: 12px;
+ }
+
+ .drink {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+   border-radius: 14px;
+   border: 1px solid var(--border);
+   background: #0b1220;
+ }
+
+ .thumb {
+  max-width: 300px;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display: block;
+ }
+
+ .drink .meta {
+   padding: 12px;
+   display: grid;
+   gap: 8px;
+ }
+
+ .drink .name {
+   font-size: 16px;
+   font-weight: 600;
+ }
+
+ .drink .instructions {
+   font-size: 13px;
+   color: var(--muted);
+   line-height: 1.4;
+   max-height: 5.6em;
+   overflow: auto;
+ }
+
+ .list {
+   display: grid;
+   gap: 8px;
+   margin-top: 10px;
+ }
+
+ .chip {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 8px;
+   border: 1px dashed var(--border);
+   border-radius: 999px;
+   padding: 8px 10px;
+   background: #0b1220;
+ }
+
+ .muted {
+   color: var(--muted);
+ }
+
+ .toast {
+   position: fixed;
+   bottom: 18px;
+   left: 50%;
+   transform: translateX(-50%) translateY(20px);
+   background: rgba(17, 24, 39, 0.9);
+   border: 1px solid var(--border);
+   color: var(--text);
+   padding: 10px 14px;
+   border-radius: 999px;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+   opacity: 0;
+   transition: opacity .25s ease, transform .25s ease;
+   pointer-events: none;
+   z-index: 50;
+ }
+
+ .toast.show {
+   opacity: 1;
+   transform: translateX(-50%) translateY(0);
+ }
+
+#toast-box {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 14px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ @media print {
+   body * {
+     visibility: hidden !important;
+   }
+
+   #print-area,
+   #print-area * {
+     visibility: visible !important;
+   }
+
+   #print-area {
+     position: absolute;
+     left: 0;
+     top: 0;
+     width: 100%;
+   }
+ }

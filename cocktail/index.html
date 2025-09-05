@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cocktail Shopping List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="title">Cocktail Shopping List</div>
+      </div>
+    </header>
+
+    <div class="search-wrapper">
+      <form class="search" id="search-form">
+        <input id="query" type="text" placeholder="e.g. margarita, mojito, martini" required />
+        <button class="btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+
+    <div class="container app">
+      <section class="card">
+        <div class="content">
+          <h2>Search Results</h2>
+          <div id="results" class="results" aria-live="polite" aria-busy="false"></div>
+        </div>
+      </section>
+
+      <section class="card" id="print-area">
+        <div class="content">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <h2>Shopping list</h2>
+            <div style="display:flex; gap:8px;">
+              <button id="print" class="btn-green" title="Print ingredients">Print list</button>
+              <button id="clear" class="btn-danger" title="Clear all ingredients">Clear</button>
+            </div>
+          </div>
+          <p class="muted" id="empty">No ingredients yet. Add some from the results.</p>
+          <div id="list" class="list">
+            <div id="list-wrap"></div>
+          </div>
+          <!-- Toaster integrat aici -->
+          <div id="toast-box"></div>
+        </div>
+      </section>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="script.js"></script>
+ 
+  </body>
+</html>
